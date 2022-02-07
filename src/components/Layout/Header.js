@@ -10,8 +10,8 @@ const Header = () => {
                 <StaticImage
                     src="../../images/trolldans-logotype__text.png"
                     alt="Trolldans logotype text only"
-                    placeholder="blurred"
                     loading="eager"
+                    placeholder="blurred"
                 />
             </div>
             <div className="menu">

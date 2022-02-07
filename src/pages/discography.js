@@ -4,7 +4,7 @@ import { graphql, Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 export const query = graphql`
-    query IndexPageQuery {
+    query RecordsPageQuery {
         allContentfulRecords {
             nodes {
                 artist
@@ -21,17 +21,11 @@ export const query = graphql`
     }
 `;
 
-const IndexPage = ({ data }) => {
+const Records = ({ data }) => {
     const { nodes } = data.allContentfulRecords;
 
     return (
         <Layout>
-            <section>
-                <h1>Latest news</h1>
-            </section>
-            <section>
-                <h2>Upcoming event</h2>
-            </section>
             <section>
                 <h2>Our records</h2>
                 <div className="md:grid grid-cols-2 gap-10">
@@ -44,8 +38,7 @@ const IndexPage = ({ data }) => {
                                     className="card"
                                     key={item.catalogueNumber}
                                 >
-                                    <Link to="/discography">
-                                        {' '}
+                                    <Link to="/records">
                                         <GatsbyImage
                                             alt={item.coverArt?.description}
                                             image={coverArt}
@@ -68,4 +61,4 @@ const IndexPage = ({ data }) => {
     );
 };
 
-export default IndexPage;
+export default Records;
