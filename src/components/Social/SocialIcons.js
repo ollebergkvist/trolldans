@@ -3,19 +3,19 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
 const SocialIcons = () => {
-    const query = useStaticQuery(graphql`
-        query SocialIconsQuery {
-            contentfulSocialLinks {
-                facebookUrl
-                instagramUrl
-                linkedinUrl
-                bandcampUrl
-            }
-        }
-    `);
+    // const query = useStaticQuery(graphql`
+    //     query SocialIconsQuery {
+    //         contentfulSocialLinks {
+    //             facebookUrl
+    //             instagramUrl
+    //             linkedinUrl
+    //             bandcampUrl
+    //         }
+    //     }
+    // `);
 
-    const { facebookUrl, instagramUrl, linkedinUrl } =
-        query.contentfulSocialLinks;
+    // const { facebookUrl, instagramUrl, linkedinUrl } =
+    //     query.contentfulSocialLinks;
 
     return (
         <div className="social-links">
