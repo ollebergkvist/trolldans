@@ -1,3 +1,7 @@
 .brand {
     width: 200px;
 }
+
+.menu {
+    z-index: 5;
+}

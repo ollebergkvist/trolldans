@@ -1,16 +1,28 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Header from './Header';
 import CookieConsent from 'react-cookie-consent';
 import Footer from './Footer';
+import Menu from '../UI/Menu';
 
 const Layout = ({ children }) => {
+    const [menuIsOpen, setMenuIsOpen] = useState(false);
+
+    const setMenuIsOpenHandler = () => {
+        setMenuIsOpen(!menuIsOpen);
+    };
+
     return (
         <>
             <div className="container">
-                <Header />
+                <Header
+                    onOpenMenu={setMenuIsOpenHandler}
+                    menuIsOpen={menuIsOpen}
+                />
                 <main className="">{children}</main>
-                <Footer />
             </div>
+            <Footer />
+            <Menu menuIsOpen={menuIsOpen} />
             <CookieConsent
                 location="bottom"
                 buttonText="Accept"

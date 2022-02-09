@@ -1,33 +1,37 @@
-import React from 'react';
 import { Link } from 'gatsby';
+import * as React from 'react';
+import * as styles from './Menu.module.css';
 
-const SiteNavigation = () => (
-    <nav>
-        <Link to="/" activeClassName="active">
-            Home
-        </Link>
-        <Link to="/discography/" activeStyle={{ color: 'red' }}>
-            Discography
-        </Link>
-        <Link to="/events/" activeClassName="active">
-            Events
-        </Link>
-        <Link to="/artists/" activeClassName="active">
-            Artists
-        </Link>
-        <Link to="/biography/" activeClassName="active">
-            Biography
-        </Link>
-        <Link to="/john-bauer/" activeClassName="active">
-            John Bauer
-        </Link>
-        <Link to="/contact/" activeClassName="active">
-            Contact
-        </Link>
-        <Link to="/subscribe/" activeClassName="active">
-            Subscribe
-        </Link>
-    </nav>
-);
+const Menu = ({ menuIsOpen }) => {
+    const menuClasses = `${styles.menu} ${
+        menuIsOpen ? styles.open : styles.closed
+    }`;
 
-export default SiteNavigation;
+    const menuItems = [
+        { label: 'Home', route: '/' },
+        { label: 'Events', route: '/events' },
+        { label: 'Records', route: '/records' },
+        { label: 'Artists', route: '/artists' },
+        { label: 'Biography', route: '/biography' },
+        { label: 'John Bauer', route: '/john-bauer' },
+        { label: 'Subscribe', route: '/subscribe' },
+        { label: 'Contact', route: '/contact' },
+    ];
+
+    return (
+        <nav aria-label="navigation" className={menuClasses}>
+            {}
+            {menuItems.map((item) => (
+                <Link
+                    to={`"${item.route}"`}
+                    activeClassName="active"
+                    className="block uppercase font-semibold text-4xl text-center pb-2 hover:text-blue"
+                >
+                    {item.label}
+                </Link>
+            ))}
+        </nav>
+    );
+};
+
+export default Menu;

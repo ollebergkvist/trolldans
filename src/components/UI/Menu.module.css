@@ -1,0 +1,26 @@
+.menu {
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+}
+
+.open {
+    transform: translateX(0);
+    transition: transform 200ms;
+    overflow: hidden;
+}
+
+.closed {
+    transform: translateX(100%);
+    transition: transform 200ms;
+    overflow: hidden;
+}
